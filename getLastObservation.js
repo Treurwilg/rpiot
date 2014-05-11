@@ -22,7 +22,9 @@ function handleOnce() {
 };
 
 function ajaxCompleted(ajax) {
-  document.getElementById("output").value =JSON.parse(ajax.responseText);  
+  updatePage(ajax);
 }
 
-
+function updatePage(ajaxObject) {
+  document.getElementById("output").value =JSON.parse(ajaxObject.responseText);  
+}
