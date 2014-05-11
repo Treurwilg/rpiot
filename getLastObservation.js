@@ -1,8 +1,8 @@
 window.onload = function() {
-  document.getElementById("load").onclick = displayNotesClickAsync;
+  document.getElementById("load").onclick = handleOnce;
 };
 
-function downloadTextAsync(url, fn) {
+function getOnce(url, fn) {
   var ajax = new XMLHttpRequest();
   ajax.onreadystatechange = function() {
     if (ajax.readyState == 4) {
@@ -17,11 +17,12 @@ function downloadTextAsync(url, fn) {
   ajax.send(null);
 };
 
-function displayNotesClickAsync() {
-  downloadTextAsync("lastObservation.php", ajaxCompleted);
+function handleOnce() {
+  getOnce("lastObservation.php", ajaxCompleted);
 };
 
 function ajaxCompleted(ajax) {
-  document.getElementById("output").value =JSON.parse(ajax.responseText);
+  document.getElementById("output").value =JSON.parse(ajax.responseText);  
 }
+
 
