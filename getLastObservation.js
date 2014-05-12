@@ -52,5 +52,14 @@ function ajaxCompleted(ajax) {
 
 function updatePage(ajaxObject) {
   var jsObj = JSON.parse(ajaxObject.responseText);  
-  document.getElementById("output").value = window.nr + " " + jsObj[0] + " " + jsObj[1];
+  var table = document.getElementById("output");
+  var nrOfRows = table.rows.length;
+  var row = table.insertRow(nrOfRows);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  cell1.innerHTML = window.nr;
+  cell2.innerHTML = jsObj[0];
+  cell3.innerHTML = jsObj[1];
+  window.scrollBy(0,21);
 }

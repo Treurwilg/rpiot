@@ -6,30 +6,30 @@
   </head>
   <body>
     <h1>Temperature sensor Alphen aan de Maas</h1>
-    <h3>This page lets you request the last measurement once or several times 
-         depending on your entries for the input variables interval and number 
-         of measurements. The interval should be >= 1000 (milliseconds). 
-         Please hit the stop button when you are done.
+    <h3>Temperature measurements are entered in a database every second. This page lets you 
+         request the most recent measurement from the database, once or several times, 
+         depending on your entries for interval and number 
+         of measurements. The interval should be >= 1000 (milliseconds).  
     </h3>
     <div>
       <label>Interval</label>
-      <input type="text" id="interval" value="0" />
+      <input type="text" id="interval" size="5" value="1000" />
     </div>
     <div>
       <label>Number</label>
-      <input type="text" id="number" value="1" />
+      <input type="text" id="number" size="5" value="1" />
     </div>
     <div>
-      <button id="start" >Start measurements</button>
+      <button id="start" >Start displaying measurements</button>
     </div>
     <div>
-      <label>Date......Time......Temp Celsius</label>
+      <table id='output'>
+        <caption>Output table</caption>
+        <tr><th>Count</th><th>DateTime.....</th><th>Celsius</th></tr>
+      </table>
     </div>
     <div>
-      <textarea id="output" rows="4" cols="30" >Output expected here</textarea>
-    </div>
-    <div>
-      <button id="stop" >Stop measurements</button>
+      <button id="stop">Stop displaying measurements</button>
     </div>
   </body>
 </html>
