@@ -32,16 +32,15 @@ def read_temp():
     temp_f = temp_c * 9.0 / 5.0 +32.0
     return temp_c, temp_f
 
-i = 0
-while i < 10:
+
+while True:
   (temp_c, temp_f) = read_temp()
   t = time.strftime("%Y-%m-%d %H:%M:%S")
   print t, temp_c, temp_f
-  time.sleep(10)
+  time.sleep(1)
   try:
     cursor.execute('INSERT INTO Temp1 VALUES("%s","%s","%s")' % \
       (t, temp_c, temp_f))
     db.commit()
   except:
     db.rollback()
-  i = i + 1
