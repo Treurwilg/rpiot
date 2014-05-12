@@ -51,5 +51,6 @@ function ajaxCompleted(ajax) {
 }
 
 function updatePage(ajaxObject) {
-  document.getElementById("output").value =JSON.parse(ajaxObject.responseText);  
+  var jsObj = JSON.parse(ajaxObject.responseText);  
+  document.getElementById("output").value = window.nr + " " + jsObj[0] + " " + jsObj[1];
 }
